@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Trainee Page</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Trainee Info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    img {
+      max-width: 150px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    a:hover {
+      background: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <div id="content">
-    <img id="photo" src="" alt="Trainee Photo" width="150" />
-      <h2 id="name"></h2>
-      <img id="photo" src="" alt="Trainee photo" width="150">
-      <p id="program"></p>
-      <p id="phone"></p>
-      <p id="start-date"></p>
-      <a id="submit-link" href="#" target="_blank">Submit Attendance</a><br>
-      <a id="track-link" href="#" target="_blank">Track Attendance</a>
+  <h1>Trainee Profile</h1>
 
-  </div>
-  <script src="main.js"></script>
-  <!-- Firebase SDKs -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <h2 id="name">Loading...</h2>
+  <img id="photo" src="" alt="Trainee Photo">
+  <p><strong>Program:</strong> <span id="program"></span></p>
+  <p><strong>Phone:</strong> <span id="phone"></span></p>
+  <p><strong>Start Date:</strong> <span id="start-date"></span></p>
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  <a id="submit-link" href="#" target="_blank">Submit Attendance</a><br>
+  <a id="track-link" href="#" target="_blank">Track Attendance</a>
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyAhjkeSO42TCDdbd3ZTHcvfMFqF9LF-GNw",
-    authDomain: "trainee-pages.firebaseapp.com",
-    projectId: "trainee-pages",
-    storageBucket: "trainee-pages.firebasestorage.app",
-    messagingSenderId: "515476183719",
-    appId: "1:515476183719:web:f58a4ed6647b6df035d982"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
-  
-<script src="main.js"></script>
-
-
-</body>
-</html>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.7.
