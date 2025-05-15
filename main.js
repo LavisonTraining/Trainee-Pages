@@ -59,6 +59,7 @@ async function loadTraineeData(id) {
     const links = data.Links || {};
     document.getElementById("submit-link").href = links.Submit || "#";
     document.getElementById("track-link").href = links.Track || "#";
+    document.getElementById("Attendance-link").href = links.Attendance || "#";
 
   } catch (error) {
     console.error("Error loading trainee data:", error);
