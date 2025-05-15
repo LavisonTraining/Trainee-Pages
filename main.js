@@ -9,8 +9,10 @@ const dummyData = {
     phone: "+123456789",
     program: "Cognitive Behavioral Therapy",
     startDate: "2025-04-01",
-    attendanceSubmitUrl: "https://example.com/submit",
-    attendanceTrackUrl: "https://example.com/track"
+   links: {
+  submit: "https://example.com/submit",
+  track: "https://example.com/track"
+}
   }
 };
 
@@ -21,9 +23,12 @@ if (data) {
   document.getElementById("name").textContent = data.name;
   document.getElementById("phone").textContent = data.phone;
   document.getElementById("program").textContent = data.program;
-  document.getElementById("start-date").textContent = data.startDate;
-  document.getElementById("submit-link").href = data.attendanceSubmitUrl;
-  document.getElementById("track-link").href = data.attendanceTrackUrl;
+  const startDate = data.startDate.toDate(); // Convert timestamp to JavaScript Date
+document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
+  year: "numeric", month: "long", day: "numeric"
+});
+  document.getElementById("submit-link").href = data.links.submit;
+document.getElementById("track-link").href = data.links.track;
 } else {
   document.getElementById("content").innerHTML = "<p>Trainee not found.</p>";
 }
