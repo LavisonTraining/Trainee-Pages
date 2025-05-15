@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const traineeId = urlParams.get("id");
-const startDate = new Date("2025-04-01"); // ISO format
-const formattedStartDate = startDate.toLocaleDateString("en-GB", {
+const start-Date = new Date("2025-04-01"); // ISO format
+const formattedStartDate = start-Date.toLocaleDateString("en-GB", {
   year: "numeric", month: "long", day: "numeric"
 });
 
