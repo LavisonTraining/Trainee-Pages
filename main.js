@@ -7,7 +7,7 @@ const dummyData = {
     name: "John Doe",
     photoUrl: "https://via.placeholder.com/150",
     phone: "+123456789",
-    program: "Cognitive Behavioral Therapy",
+    program: "Dialectic Behavioral Therapy",
     startDate: "2025-04-01",
    links: {
   submit: "https://example.com/submit",
