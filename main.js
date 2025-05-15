@@ -1,3 +1,22 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAhjkeSO42TCDdbd3ZTHcvfMFqF9LF-GNw",
+    authDomain: "trainee-pages.firebaseapp.com",
+    projectId: "trainee-pages",
+    storageBucket: "trainee-pages.firebasestorage.app",
+    messagingSenderId: "515476183719",
+    appId: "1:515476183719:web:f58a4ed6647b6df035d982"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
 const urlParams = new URLSearchParams(window.location.search);
 const traineeId = urlParams.get("id");
 const startDate = new Date("2025-04-01"); // ISO format
