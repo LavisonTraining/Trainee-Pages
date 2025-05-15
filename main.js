@@ -36,35 +36,7 @@ async function loadTraineeData(id) {
       return;
     }
 
-    // just for log
-     const data = docSnap.data();
-  console.log("Fetched data:", data);
 
-  document.getElementById("name").textContent = data.Name || "No Name";
-  document.getElementById("photo").src = data["Photo URL"] || "default-photo.png";
-  document.getElementById("program").textContent = data.Program || "No Program";
-  document.getElementById("phone").textContent = data.Phone || "No Phone";
-
-  if (data.StartDate && data.StartDate.toDate) {
-    const startDate = data.StartDate.toDate();
-    document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
-  } else {
-    document.getElementById("start-date").textContent = "No Start Date";
-  }
-
-  const links = data.Links || {};
-  document.getElementById("submit-link").href = links.Submit || "#";
-  document.getElementById("track-link").href = links.Track || "#";
-
-} catch (error) {
-  console.error("Error loading trainee data:", error);
-  document.getElementById("name").textContent = "❌ Error loading trainee data.";
-}
-    
 
     const data = docSnap.data();
 
