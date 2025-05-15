@@ -17,41 +17,39 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
 </script>
-const urlParams = new URLSearchParams(window.location.search);
-const traineeId = urlParams.get("id");
-const startDate = new Date("2025-04-01"); // ISO format
-const formattedStartDate = startDate.toLocaleDateString("en-GB", {
-  year: "numeric", month: "long", day: "numeric"
-});
+// Get trainee ID from URL
+const params = new URLSearchParams(window.location.search);
+const traineeId = params.get("id");
 
-// Dummy data for now
-const dummyData = {
-  abc123: {
-    name: "John Doe",
-    photoUrl: "https://via.placeholder.com/150",
-    phone: "+123456789",
-    program: "Dialectic Behavioral Therapy",
-    startDate: formattedStartDate,
-   links: {
-  submit: "https://example.com/submit",
-  track: "https://example.com/track"
-}
-  }
-};
-
-const data = dummyData[traineeId];
-
-if (data) {
-  document.getElementById("photo").src = data.photoUrl;
-  document.getElementById("name").textContent = data.name;
-  document.getElementById("phone").textContent = data.phone;
-  document.getElementById("program").textContent = data.program;
-  const startDate = data.startDate.toDate(); // Convert timestamp to JavaScript Date
-document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
-  year: "numeric", month: "long", day: "numeric"
-});
-  document.getElementById("submit-link").href = data.links.submit;
-document.getElementById("track-link").href = data.links.track;
+if (!traineeId) {
+  alert("No trainee ID found in URL.");
 } else {
-  document.getElementById("content").innerHTML = "<p>Trainee not found.</p>";
+  const docRef = db.collection("trainees").doc(traineeId);
+
+  docRef.get().then((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+
+      // Fill in the page with trainee data
+      document.getElementById("name").textContent = data.name;
+      document.getElementById("photo").src = data.photo;
+      document.getElementById("program").textContent = data.program;
+      document.getElementById("phone").textContent = data.phone;
+
+      // Convert timestamp to readable date
+      const startDate = data.startDate.toDate();
+      document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
+        year: "numeric", month: "long", day: "numeric"
+      });
+
+      // Load links
+      document.getElementById("submit-link").href = data.links.submit;
+      document.getElementById("track-link").href = data.links.track;
+
+    } else {
+      alert("No trainee found with this ID.");
+    }
+  }).catch((error) => {
+    console.error("Error getting document:", error);
+  });
 }
