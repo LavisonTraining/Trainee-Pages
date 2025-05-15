@@ -66,28 +66,28 @@ async function loadTraineeData(id) {
 }
     
 
-  //  const data = docSnap.data();
+    const data = docSnap.data();
 
- //   document.getElementById("name").textContent = data.name;
-  //  document.getElementById("photo").src = data.photo;
- //   document.getElementById("program").textContent = data.program;
-   // document.getElementById("phone").textContent = data.phone;
+    document.getElementById("name").textContent = data.name;
+    document.getElementById("photo").src = data.photo;
+    document.getElementById("program").textContent = data.program;
+    document.getElementById("phone").textContent = data.phone;
 
-    // Convert Firestore Timestamp to readable date
-  //  const startDate = data.startDate.toDate();
-  //  document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
- //     year: "numeric", month: "long", day: "numeric"
- //   });
+     Convert Firestore Timestamp to readable date
+    const startDate = data.startDate.toDate();
+    document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
+     year: "numeric", month: "long", day: "numeric"
+    });
 
     // Set attendance links
-//    document.getElementById("submit-link").href = data.links?.submit || "#";
-//    document.getElementById("track-link").href = data.links?.track || "#";
+   document.getElementById("submit-link").href = data.links?.submit || "#";
+    document.getElementById("track-link").href = data.links?.track || "#";
 
-//  } catch (error) {
-//    console.error("Error loading trainee:", error);
-//    document.getElementById("name").textContent = "❌ Error loading trainee data.";
-//  }
-// }
+  } catch (error) {
+    console.error("Error loading trainee:", error);
+    document.getElementById("name").textContent = "❌ Error loading trainee data.";
+  }
+ }
 
 
 
