@@ -1,5 +1,9 @@
 const urlParams = new URLSearchParams(window.location.search);
 const traineeId = urlParams.get("id");
+const startDate = new Date("2025-04-01"); // ISO format
+const formattedStartDate = startDate.toLocaleDateString("en-GB", {
+  year: "numeric", month: "long", day: "numeric"
+});
 
 // Dummy data for now
 const dummyData = {
@@ -8,11 +12,7 @@ const dummyData = {
     photoUrl: "https://via.placeholder.com/150",
     phone: "+123456789",
     program: "Dialectic Behavioral Therapy",
-    startDate: document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
-  year: "numeric", month: "long", day: "numeric"
-});
-// → "1 April 2025"
-,
+    startDate: formattedStartDate,
    links: {
   submit: "https://example.com/submit",
   track: "https://example.com/track"
