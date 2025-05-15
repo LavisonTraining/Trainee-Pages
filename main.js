@@ -8,7 +8,11 @@ const dummyData = {
     photoUrl: "https://via.placeholder.com/150",
     phone: "+123456789",
     program: "Dialectic Behavioral Therapy",
-    startDate: "2025-04-01",
+    startDate: document.getElementById("start-date").textContent = startDate.toLocaleDateString("en-GB", {
+  year: "numeric", month: "long", day: "numeric"
+});
+// → "1 April 2025"
+,
    links: {
   submit: "https://example.com/submit",
   track: "https://example.com/track"
