@@ -28,7 +28,7 @@ async function loadTraineeData(id) {
   }
 
   try {
-    const docRef = doc(db, "trainees", id);
+    const docRef = doc(db, "Trainees", id);
     const docSnap = await getDoc(docRef);
 
     if (!docSnap.exists()) {
@@ -58,6 +58,8 @@ async function loadTraineeData(id) {
     document.getElementById("name").textContent = "❌ Error loading trainee data.";
   }
 }
+
+
 
 // Run the function
 loadTraineeData(traineeId);
