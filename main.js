@@ -58,9 +58,10 @@ async function loadTraineeData(id) {
     // Links
     const links = data.Links || {};
     document.getElementById("submit-link").href = links.Submit || "#";
+    document.getElementById("CBT16-link").href = links.CBT16 || "#";
     document.getElementById("track-link").href = links.Track || "#";
     document.getElementById("Attendance-link").href = links.Attendance || "#";
-    document.getElementById("CBT16-link").href = links.CBT16 || "#";
+
 
   } catch (error) {
     console.error("Error loading trainee data:", error);
